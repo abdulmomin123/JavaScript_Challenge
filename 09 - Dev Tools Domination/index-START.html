@@ -20,28 +20,62 @@
       }
 
       // Regular
+      console.log("hi");
 
       // Interpolated
+      console.log("I am %s", "Momin");
 
       // Styled
+      console.log("%c I am colored", "color: red");
 
       // warning!
+      console.warn("This is the last last warning!");
 
       // Error :|
+      console.error("Ah oh! There is an error");
 
       // Info
+      console.info("You will die one day!");
 
       // Testing
+      console.assert(1 === 2, "Thats false!");
 
       // clearing
+      console.clear();
 
       // Viewing DOM Elements
+      console.dir(document.querySelector("p"));
 
       // Grouping together
+      dogs.forEach((dog) => {
+        console.group(`${dog.name}`);
+        console.log(`${dog.name}`);
+        console.log(`${dog.age}`);
+        console.groupEnd(`${dog.name}`);
+      });
 
       // counting
+      console.count("hello");
+      console.count("world");
+      console.count("hello");
+      console.count("world");
+      console.count("world");
+      console.count("hello");
+      console.count("world");
+      console.count("hello");
+      console.count("hello");
+      console.count("world");
 
       // timing
+      console.time("Time");
+      fetch("https:/api.github.com/users/abdulmomin123")
+        .then((data) => {
+          return data.json();
+        })
+        .then((data) => console.timeEnd("Time"));
+
+      // Tables
+      console.table(dogs);
     </script>
   </body>
 </html>
