@@ -26,8 +26,6 @@ const ctrlVolume = () => {
 
   const inputVolume = volume.value;
   video.volume = inputVolume;
-
-  console.dir(video);
 };
 
 const ctrlSpeed = () => {
@@ -76,7 +74,3 @@ speed.addEventListener("mousemove", ctrlSpeed);
 
 // skip
 buttons.forEach((button) => button.addEventListener("click", ctrlSkip));
-
-// setInterval(() => {
-//   console.log(video.currentTime);
-// }, 1000);
