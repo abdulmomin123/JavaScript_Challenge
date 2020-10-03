@@ -11,6 +11,7 @@ const buttons = [
 
 let isMouseDown;
 let percentange = 0;
+let clickedArea;
 
 const togglePlay = () => {
   if (!video.paused) {
@@ -36,18 +37,12 @@ const ctrlSpeed = () => {
   video.playbackRate = inputSpeed;
 };
 
-const ctrlProgress = (state) => {
+const ctrlProgress = () => {
   if (video.paused) return;
 
-  if (state === "normal") {
-    const videoLength = video.duration;
-    const currentTime = video.currentTime;
-    percentange += 100 / videoLength;
-
-    progressFilled.style.flex = `0 0 ${percentange}%`;
-  } else if (state === "notNormal") {
-    console.log("hi");
-  }
+  progressFilled.style.flex = `0 0 ${
+    (video.currentTime / video.duration) * 100
+  }%`;
 };
 
 const ctrlSkip = (e) => {
@@ -55,22 +50,27 @@ const ctrlSkip = (e) => {
 };
 
 // Duration bar
-progress.addEventListener("mousedown", () => {
+progress.addEventListener("mousedown", (e) => {
   isMouseDown = true;
-  ctrlProgress();
+
+  clickedArea = e.offsetX;
+  video.currentTime = (video.duration * clickedArea) / progress.clientWidth;
 });
-progress.addEventListener("mouseup", () => (isMouseDown = false));
-progress.addEventListener("mousemove", ctrlProgress);
+progress.addEventListener("mouseup", () => {
+  isMouseDown = false;
 
-video.onplay = () =>
-  setInterval(() => {
-    ctrlProgress("normal");
-    console.log(parseFloat(speed.value) * 1000);
-  }, 1000);
+  video.play();
+});
+progress.addEventListener("mousemove", (e) => {
+  if (!isMouseDown) return;
 
-video.onratechange = () => {
-  console.log("hi");
-};
+  clickedArea = e.offsetX;
+  video.currentTime = (video.duration * clickedArea) / progress.clientWidth;
+
+  video.play().then(() => video.pause());
+});
+
+video.ontimeupdate = () => ctrlProgress();
 
 // play pause
 playPause.onclick = () => togglePlay();
@@ -93,3 +93,9 @@ speed.addEventListener("mousemove", ctrlSpeed);
 
 // skip
 buttons.forEach((button) => button.addEventListener("click", ctrlSkip));
+
+const init = () => {
+  video.volume = volume.value;
+  video.playbackRate = speed.value;
+};
+init();
