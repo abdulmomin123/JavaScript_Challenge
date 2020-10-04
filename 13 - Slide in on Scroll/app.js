@@ -19,8 +19,15 @@ const images = document.querySelectorAll(".slide-in");
 const checkSlide = () => {
   images.forEach((image) => {
     const slideAt = window.innerHeight + window.scrollY - image.height / 2;
-    if (window.scrollY >= slideAt) image.classList.add("active");
-    console.log(slideAt);
+    const imageBottom = image.offsetTop + image.height;
+    const isHalfShown = slideAt > image.offsetTop;
+    const isNotScrolledPast = window.scrollY < imageBottom;
+
+    if (isHalfShown && isNotScrolledPast) {
+      image.classList.add("active");
+    } else {
+      image.classList.remove("active");
+    }
   });
 };
 
