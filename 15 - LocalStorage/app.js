@@ -36,7 +36,7 @@ const addItem = (e) => {
    </li>
   `;
   itemsList.insertAdjacentHTML("beforeend", markup);
-  input.value = "";
+  e.target.reset();
   setLocalItem(`item${item}`, markup);
   index++;
   item++;
