@@ -1,4 +1,5 @@
 const input = document.querySelector("input[name=item]");
+const label = document.querySelector("label");
 const submit = document.querySelector("input[type=submit]");
 const addItems = document.querySelector(".add-items");
 const itemsList = document.querySelector(".plates");
@@ -6,7 +7,12 @@ const items = [];
 let index = 0;
 let item = 0;
 const reg = new RegExp("item", "gi");
-const init = () => {
+
+const setLocalItem = (key, value) => {
+  localStorage.setItem(key, value);
+};
+
+const getLocalItem = () => {
   if (!localStorage) return;
 
   const length = localStorage.length;
@@ -25,17 +31,30 @@ const addItem = (e) => {
   const userInput = input.value;
   const markup = `
    <li>
-      <input type="checkbox" data-index="${index}" id="item0">
+      <input type="checkbox" data-index="${index}" id="item${item}">
       <label for="item${item}">${userInput}</label>
    </li>
   `;
   itemsList.insertAdjacentHTML("beforeend", markup);
   input.value = "";
-  localStorage.setItem(`item${item}`, markup);
+  setLocalItem(`item${item}`, markup);
   index++;
   item++;
 };
 
-addItems.addEventListener("submit", addItem);
+const toggleState = (e) => {
+  if (!e.target.id) return;
 
-init();
+  e.target.toggleAttribute("checked");
+  setLocalItem(
+    e.target.id,
+    `<li>
+    ${e.target.parentNode.innerHTML}
+  </li>`
+  );
+};
+
+addItems.addEventListener("submit", addItem);
+itemsList.addEventListener("click", toggleState);
+
+getLocalItem();
