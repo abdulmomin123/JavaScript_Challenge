@@ -41,7 +41,6 @@ const sortBands = (arr) => {
       indexB = 0;
     }
 
-    //  a[indexA] > b[indexB] ? -1 : 1;
     if (a[indexA] > b[indexB]) {
       return -1;
     } else {
