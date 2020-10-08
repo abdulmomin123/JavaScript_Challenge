@@ -16,11 +16,3 @@ const minute = Math.floor(secondsLeft / 60);
 secondsLeft = secondsLeft % 60;
 
 console.log(hour, minute, secondsLeft);
-// const totalTime = times.reduce((acc, cur) => {
-//   const minuteSecond = cur.split(":");
-//   const second = parseInt(minuteSecond[0]) * 60 + parseInt(minuteSecond[1]);
-
-//   return acc + second;
-// }, 0);
-
-// console.log(times, totalTime);
