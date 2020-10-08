@@ -14,6 +14,8 @@ const hour = Math.floor(secondsLeft / 3600);
 secondsLeft = secondsLeft % 3600;
 const minute = Math.floor(secondsLeft / 60);
 secondsLeft = secondsLeft % 60;
+
+console.log(hour, minute, secondsLeft);
 // const totalTime = times.reduce((acc, cur) => {
 //   const minuteSecond = cur.split(":");
 //   const second = parseInt(minuteSecond[0]) * 60 + parseInt(minuteSecond[1]);
