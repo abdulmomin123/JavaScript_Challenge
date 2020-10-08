@@ -1,9 +1,9 @@
 const times = [...document.querySelectorAll("li")].map((el) => el.dataset.time);
 
 const totalTime = times.reduce((acc, cur) => {
-  const minuteSecond = cur.split(":");
+  const second = cur.split(":");
 
-  return acc + parseInt(minuteSecond[0]);
+  console.log(second);
 }, 0);
 
 console.log(times, totalTime);
