@@ -7,9 +7,10 @@ const seconds = times
 
     return mins * 60 + secs;
   })
-  .reduce((acc, cur) => {
-    return acc + cur;
-  }, 0);
+  .reduce((acc, cur) => acc + cur);
+
+let secondsLeft = seconds;
+const hour = secondsLeft / 3600;
 
 // const totalTime = times.reduce((acc, cur) => {
 //   const minuteSecond = cur.split(":");
