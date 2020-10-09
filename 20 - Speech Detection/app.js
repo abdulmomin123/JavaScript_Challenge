@@ -16,6 +16,5 @@ recognition.addEventListener("result", (e) => {
     p = document.createElement("p");
     words.appendChild(p);
   }
-  console.log(transcript);
 });
 recognition.addEventListener("end", recognition.start);
