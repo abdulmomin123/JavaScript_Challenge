@@ -11,6 +11,11 @@ words.appendChild(p);
 
 recognition.addEventListener("result", (e) => {
   const transcript = [...e.results].map((el) => el[0].transcript).join();
+  p.textContent = transcript;
+  if (e.results[0].isFinal) {
+    p = document.createElement("p");
+    words.appendChild(p);
+  }
   console.log(transcript);
 });
 recognition.addEventListener("end", recognition.start);
