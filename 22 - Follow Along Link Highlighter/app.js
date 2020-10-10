@@ -6,8 +6,9 @@ links.forEach((link) =>
     const dimentions = this.getBoundingClientRect();
     hl.style.width = `${dimentions.width}px`;
     hl.style.height = `${dimentions.height}px`;
-    hl.style.transform = `translateX(${dimentions.left}px)`;
-    hl.style.transform = `translate(${dimentions.left}px, ${dimentions.top}px)`;
+    hl.style.transform = `translate(${dimentions.left + window.scrollX}px, ${
+      dimentions.top + window.scrollY
+    }px)`;
 
     console.log(this.getBoundingClientRect());
   })
