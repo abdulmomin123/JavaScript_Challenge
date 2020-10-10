@@ -6,3 +6,8 @@ const speakButton = document.querySelector("#speak");
 const stopButton = document.querySelector("#stop");
 
 msg.text = document.querySelector('[name="text"]').value;
+
+function addVoice(e) {
+  console.log(e);
+}
+speechSynthesis.addEventListener("voiceschanged", addVoice);
