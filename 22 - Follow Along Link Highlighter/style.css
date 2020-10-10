@@ -34,13 +34,6 @@ body {
     );
 }
 
-.hl {
-  background: #fff;
-  border-radius: 20px;
-  transition: all 0.5s;
-  z-index: -1;
-}
-
 .wrapper {
   margin: 0 auto;
   max-width: 500px;
@@ -57,16 +50,16 @@ a {
 }
 
 .highlight {
-  transition: all 0.2s;
-  border-bottom: 2px solid white;
   position: absolute;
   top: 0;
-  background: white;
   left: 0;
-  z-index: -1;
-  border-radius: 20px;
   display: block;
+  background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid white;
+  border-radius: 20px;
+  transition: all 0.2s;
+  z-index: -1;
 }
 
 .menu {
