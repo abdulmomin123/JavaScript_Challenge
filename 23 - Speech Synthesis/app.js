@@ -27,5 +27,12 @@ function toggle() {
   speechSynthesis.speak(msg);
 }
 
+function setOption(e) {
+  console.log(e);
+  msg[this.name] = this.value;
+  toggle();
+}
+
 speechSynthesis.addEventListener("voiceschanged", addVoice);
 voicesDropdown.addEventListener("change", setVoice);
+options.forEach((el) => el.addEventListener("change", setOption));
