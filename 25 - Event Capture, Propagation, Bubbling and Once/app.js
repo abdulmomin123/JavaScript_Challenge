@@ -8,3 +8,7 @@ function logText(e) {
 divs.forEach((div) =>
   div.addEventListener("click", logText, { capture: 0, once: 1 })
 );
+
+document
+  .querySelector("button")
+  .addEventListener("click", logText, { once: 1 });
