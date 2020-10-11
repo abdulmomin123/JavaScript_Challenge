@@ -12,13 +12,19 @@ function addVoice(e) {
   voices.forEach((el) => {
     voicesDropdown.insertAdjacentHTML(
       "beforeend",
-      `<option value="">${el.name}</option>`
+      `<option value="${el.name}">${el.name}, (${el.lang})</option>`
     );
   });
 }
 
 function setVoice(e) {
-  console.log(e);
+  msg.voice = voices.find((el) => el.name === this.value);
+  toggle();
+}
+
+function toggle() {
+  speechSynthesis.cancel();
+  speechSynthesis.speak(msg);
 }
 
 speechSynthesis.addEventListener("voiceschanged", addVoice);
