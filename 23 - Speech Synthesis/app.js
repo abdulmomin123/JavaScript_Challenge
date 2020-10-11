@@ -8,6 +8,14 @@ const stopButton = document.querySelector("#stop");
 msg.text = document.querySelector('[name="text"]').value;
 
 function addVoice(e) {
-  console.log(e);
+  voices = this.getVoices();
+  console.log(voices);
+  voices.forEach((el) => {
+    voicesDropdown.insertAdjacentHTML(
+      "beforeend",
+      `<option value="">${el.name}</option>`
+    );
+  });
 }
+
 speechSynthesis.addEventListener("voiceschanged", addVoice);
