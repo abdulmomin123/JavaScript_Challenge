@@ -36,3 +36,5 @@ function setOption(e) {
 speechSynthesis.addEventListener("voiceschanged", addVoice);
 voicesDropdown.addEventListener("change", setVoice);
 options.forEach((el) => el.addEventListener("change", setOption));
+speakButton.addEventListener("click", toggle);
+stopButton.addEventListener("click", () => speechSynthesis.cancel());
