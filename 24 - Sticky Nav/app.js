@@ -1,9 +1,8 @@
 const body = document.querySelector("body");
 const nav = document.querySelector("#main");
+const navTop = nav.offsetTop;
 
-function toggleClass(e) {
-  const navTop = nav.offsetTop;
-
+function toggleClass() {
   if (window.scrollY >= navTop) {
     body.style.paddingTop = `${nav.offsetHeight}px`;
     body.classList.add("fixed-nav");
