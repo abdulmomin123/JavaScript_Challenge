@@ -9,7 +9,6 @@ msg.text = document.querySelector('[name="text"]').value;
 
 function addVoice(e) {
   voices = this.getVoices();
-  console.log(voices);
   voices.forEach((el) => {
     voicesDropdown.insertAdjacentHTML(
       "beforeend",
@@ -18,4 +17,9 @@ function addVoice(e) {
   });
 }
 
+function setVoice(e) {
+  console.log(e);
+}
+
 speechSynthesis.addEventListener("voiceschanged", addVoice);
+voicesDropdown.addEventListener("change", setVoice);
