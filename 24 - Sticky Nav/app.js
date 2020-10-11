@@ -10,7 +10,6 @@ function toggleClass() {
     body.style.paddingTop = 0;
     body.classList.remove("fixed-nav");
   }
-  console.log(navTop);
 }
 
 window.addEventListener("scroll", toggleClass);
