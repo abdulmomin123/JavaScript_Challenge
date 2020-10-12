@@ -1,9 +1,9 @@
-const links = document.querySelectorAll('[href="#"]');
+const links = document.querySelectorAll("li");
 const dropdowns = document.querySelectorAll(".dropdown");
 const bg = document.querySelector(".dropdownBackground");
 
 function changeBG(e) {
-  const dimentions = this.getBoundingClientRect();
+  const dimentions = this.querySelector("a").getBoundingClientRect();
 
   bg.style.width = `${dimentions.width}px`;
   bg.style.height = `${dimentions.height}px`;
