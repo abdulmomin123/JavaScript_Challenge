@@ -6,12 +6,11 @@ let startX;
 
 function scroll(e) {
   if (!isMouseDown) return;
+  e.preventDefault();
 
-  lastMousePos = e.pageX;
-  draggedPx += 3;
-
-  div.scrollLeft = draggedPx;
-  console.log(draggedPx);
+  const x = e.pageX - div.offsetLeft;
+  const walk = x - startX;
+  div.scrollLeft = scrollLeft - walk;
 }
 
 div.addEventListener("mousedown", (e) => {
