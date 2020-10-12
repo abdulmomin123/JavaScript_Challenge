@@ -9,6 +9,8 @@ function scroll(e) {
 
   lastMousePos = e.pageX;
   draggedPx = lastMousePos - draggedPx;
+
+  div.scrollLeft = draggedPx;
   console.log(draggedPx);
 }
 
