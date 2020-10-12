@@ -14,7 +14,7 @@ function displayBG(e) {
   bg.style.opacity = 1;
   bg.style.transform = `translate(${
     dimentions2.left - dimentions.width / 2 + dimentions2.width / 2
-  }px, ${dimentions2.top}px)`;
+  }px, ${dimentions2.top + scrollY}px)`;
 
   this.querySelector(".dropdown").style.opacity = 1;
   this.querySelector(".dropdown").style.visibility = "visible";
