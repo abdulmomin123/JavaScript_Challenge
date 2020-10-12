@@ -6,7 +6,8 @@ function displayBG(e) {
   const dimentions = this.querySelector(".dropdown").getBoundingClientRect();
   const dimentions2 = this.querySelector("a").getBoundingClientRect();
 
-  bg.style.display = "flex";
+  bg.style.transition = "all 0.3s, opacity 0.1s, transform 0.2s";
+  bg.style.visibility = "visible";
   this.querySelector(".dropdown").style.transition = "all 0.5s 0.1s";
   bg.style.width = `${dimentions.width}px`;
   bg.style.height = `${dimentions.height}px`;
@@ -23,7 +24,8 @@ function removeBG(e) {
   this.querySelector(".dropdown").style.transition = "none";
   this.querySelector(".dropdown").style.visibility = "hidden";
 
-  // bg.style.display = "none";
+  bg.style.transition = "none";
+  bg.style.visibility = "hidden";
 }
 
 links.forEach((link) => link.addEventListener("mouseenter", displayBG));
