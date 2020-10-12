@@ -2,6 +2,7 @@ const div = document.querySelector(".items");
 
 let isMouseDown = false;
 let draggedPx;
+let lastMousePos;
 
 function scroll(e) {
   if (!isMouseDown) return;
