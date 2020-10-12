@@ -9,6 +9,8 @@ function displayBG(e) {
   bg.style.height = `${dimentions.height}px`;
   bg.style.opacity = 1;
   bg.style.transform = `translate(${dimentions.left}px, ${dimentions.top}px)`;
+
+  this.querySelector(".dropdown").style.opacity = 1;
 }
 
 function removeBG(e) {
