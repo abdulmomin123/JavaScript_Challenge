@@ -7,12 +7,13 @@ let lastMousePos;
 function scroll(e) {
   if (!isMouseDown) return;
 
-  draggedPx = e.offsetX - draggedPx;
-  console.log(e);
+  lastMousePos = e.pageX;
+  draggedPx = lastMousePos - draggedPx;
+  console.log(draggedPx);
 }
 
 div.addEventListener("mousedown", (e) => {
-  [isMouseDown, draggedPx] = [true, e.offsetX];
+  [isMouseDown, draggedPx] = [true, e.pageX];
   div.classList.add("active");
 });
 div.addEventListener("mouseup", () => {
