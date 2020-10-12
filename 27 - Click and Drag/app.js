@@ -1,8 +1,8 @@
 const div = document.querySelector(".items");
 
 let isMouseDown = false;
-let draggedPx = 0;
-let lastMousePos;
+let scrollLeft;
+let startX;
 
 function scroll(e) {
   if (!isMouseDown) return;
@@ -15,7 +15,9 @@ function scroll(e) {
 }
 
 div.addEventListener("mousedown", (e) => {
-  [isMouseDown, draggedPx] = [true, e.pageX - div.offsetLeft];
+  startX = e.pageX - div.offsetLeft;
+  isMouseDown = true;
+  scrollLeft = div.scrollLeft;
   div.classList.add("active");
 });
 div.addEventListener("mouseup", () => {
