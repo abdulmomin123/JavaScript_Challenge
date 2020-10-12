@@ -9,7 +9,7 @@ function changeBG(e) {
   bg.style.height = `${dimentions.height}px`;
   bg.style.opacity = 1;
   bg.style.transform = `translate(${dimentions.left}px, ${dimentions.top}px)`;
-  console.log(e.target.getBoundingClientRect());
+  console.log(e.target);
 }
 
 links.forEach((link) => link.addEventListener("mouseover", changeBG));
