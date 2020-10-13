@@ -1,7 +1,8 @@
 let time;
 
-function count(min) {
-  min = `${min}:00`;
-  console.log(min);
+function count(sec) {
+  const now = Date.now();
+  const then = now + sec * 1000;
+  console.log({ now, then });
 }
-count(5);
+count(3600);
