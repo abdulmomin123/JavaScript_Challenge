@@ -2,12 +2,13 @@ const speed = document.querySelector(".speed");
 const bar = speed.querySelector(".speed-bar");
 const video = document.querySelector(".flex");
 
-let mousePos;
-let rate;
-
 speed.addEventListener("mousemove", (e) => {
-  mousePos = e.pageY - speed.offsetTop;
+  const y = e.pageY - speed.offsetTop;
+  const percent = y / speed.offsetHeight;
+  const min = 0.4;
+  const max = 4;
+  const rate = percent * (max - min) + min;
 
-  bar.style.height = mousePos + "px";
-  console.log(mousePos);
+  bar.style.height = percent * 100 + "%";
+  bar.textContent = rate.toFixed(2);
 });
