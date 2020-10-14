@@ -11,4 +11,4 @@ function count(sec) {
 
   // console.log({ now, then });
 }
-count(10);
+// count(10);
