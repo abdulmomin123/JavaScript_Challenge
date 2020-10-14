@@ -17,8 +17,12 @@ function count(sec) {
     displayTimeLeft(secondsLeft);
   }, 1000);
 }
-count(3);
+count(120);
 
 function displayTimeLeft(seconds) {
-  console.log(seconds);
+  const minute = Math.floor(seconds / 60);
+  seconds = seconds % 60;
+  const second = seconds;
+
+  console.log(minute, seconds);
 }
