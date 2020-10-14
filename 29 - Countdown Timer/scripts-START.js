@@ -36,8 +36,11 @@ function displayTimeLeft(seconds) {
 
 function displayEndTime(stamp) {
   const time = new Date(stamp);
+  const timeFormat = time.toLocaleTimeString();
   const hour = time.getHours();
   const minute = time.getMinutes();
 
   elements.endTime.textContent = `Come back at ${hour}:${minute}`;
+
+  console.log(timeFormat);
 }
