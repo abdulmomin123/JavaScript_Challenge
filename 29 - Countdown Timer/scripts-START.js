@@ -23,7 +23,6 @@ count(120);
 function displayTimeLeft(seconds) {
   const minute = Math.floor(seconds / 60);
   seconds = seconds % 60;
-  const second = seconds;
 
-  elements.time.textContent = `${minute}:${second}`;
+  elements.time.textContent = `${minute}:${seconds}`;
 }
