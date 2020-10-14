@@ -1,4 +1,7 @@
-const elements = { time: document.querySelector(".display__time-left") };
+const elements = {
+  time: document.querySelector(".display__time-left"),
+  title: document.querySelector("title"),
+};
 let countdown;
 
 function count(sec) {
@@ -25,4 +28,5 @@ function displayTimeLeft(seconds) {
   seconds = seconds % 60 < 10 ? `0${seconds % 60}` : seconds;
 
   elements.time.textContent = `${minute}:${seconds}`;
+  elements.title.textContent = `Countdown Timer: ${minute}:${seconds}`;
 }
