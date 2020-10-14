@@ -1,6 +1,7 @@
 const elements = {
   time: document.querySelector(".display__time-left"),
   title: document.querySelector("title"),
+  endTime: document.querySelector(".display__end-time"),
 };
 let countdown;
 
@@ -32,5 +33,6 @@ function displayTimeLeft(seconds) {
 }
 
 function displayEndTime() {
-  //
+  elements.endTime.textContent = `Come back at:`;
 }
+displayEndTime();
