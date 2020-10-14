@@ -24,7 +24,7 @@ function count(sec) {
 
   displayEndTime(then);
 }
-count(60);
+count(65);
 
 function displayTimeLeft(seconds) {
   const minute = Math.floor(seconds / 60);
@@ -39,6 +39,5 @@ function displayEndTime(stamp) {
   const hour = time.getHours();
   const minute = time.getMinutes();
 
-  console.log(hour, minute);
   elements.endTime.textContent = `Come back at: ${hour}:${minute}`;
 }
