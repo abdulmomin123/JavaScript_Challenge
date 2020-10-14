@@ -2,29 +2,9 @@ const elements = {
   time: document.querySelector(".display__time-left"),
   title: document.querySelector("title"),
   endTime: document.querySelector(".display__end-time"),
+  inputs: document.querySelectorAll("button, input"),
 };
 let countdown;
-
-function count(sec) {
-  const now = Date.now();
-  const then = now + sec * 1000;
-
-  displayTimeLeft(sec);
-
-  countdown = setInterval(() => {
-    const secondsLeft = Math.round((then - Date.now()) / 1000);
-
-    if (secondsLeft <= 0) {
-      clearInterval(countdown);
-      return;
-    }
-
-    displayTimeLeft(secondsLeft);
-  }, 1000);
-
-  displayEndTime(then);
-}
-count(120);
 
 function displayTimeLeft(seconds) {
   const minute = Math.floor(seconds / 60);
@@ -46,3 +26,24 @@ function displayEndTime(stamp) {
 
   elements.endTime.textContent = `Come back at ${hour}:${minute}`;
 }
+
+function count(sec) {
+  const now = Date.now();
+  const then = now + sec * 1000;
+
+  displayTimeLeft(sec);
+
+  countdown = setInterval(() => {
+    const secondsLeft = Math.round((then - Date.now()) / 1000);
+
+    if (secondsLeft <= 0) {
+      clearInterval(countdown);
+      return;
+    }
+
+    displayTimeLeft(secondsLeft);
+  }, 1000);
+
+  displayEndTime(then);
+}
+// count(120);
