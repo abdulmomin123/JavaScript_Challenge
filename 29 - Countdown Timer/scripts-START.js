@@ -32,7 +32,9 @@ function displayTimeLeft(seconds) {
   elements.title.textContent = `Countdown Timer: ${minute}:${seconds}`;
 }
 
-function displayEndTime() {
+function displayEndTime(min, sec) {
+  const curTime = Date.now();
+  const seconds = (min * 60 + sec) * 1000;
   elements.endTime.textContent = `Come back at:`;
 }
 displayEndTime();
