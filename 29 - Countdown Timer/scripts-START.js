@@ -24,11 +24,11 @@ function count(sec) {
 
   displayEndTime(then);
 }
-count(65);
+count(120);
 
 function displayTimeLeft(seconds) {
   const minute = Math.floor(seconds / 60);
-  seconds = seconds % 60 < 10 ? `0${seconds % 60}` : seconds;
+  seconds = seconds % 60 < 10 ? `0${seconds % 60}` : seconds % 60;
 
   elements.time.textContent = `${minute}:${seconds}`;
   elements.title.textContent = `Countdown Timer: ${minute}:${seconds}`;
@@ -39,5 +39,5 @@ function displayEndTime(stamp) {
   const hour = time.getHours();
   const minute = time.getMinutes();
 
-  elements.endTime.textContent = `Come back at: ${hour}:${minute}`;
+  elements.endTime.textContent = `Come back at ${hour}:${minute}`;
 }
