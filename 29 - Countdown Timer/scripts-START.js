@@ -45,6 +45,4 @@ function displayEndTime(stamp) {
   }
 
   elements.endTime.textContent = `Come back at ${hour}:${minute}`;
-
-  console.log(timeFormat);
 }
