@@ -2,13 +2,16 @@ const elements = {
   time: document.querySelector(".display__time-left"),
   title: document.querySelector("title"),
   endTime: document.querySelector(".display__end-time"),
-  inputs: document.querySelectorAll("button, input"),
+  inputs: document.querySelectorAll("button"),
+  input: document.querySelector("input"),
 };
 let countdown;
 
 elements.inputs.forEach((input) => {
   input.addEventListener("click", startTimer);
 });
+
+elements.input.addEventListener("change", startTimer);
 
 function displayTimeLeft(seconds) {
   const minute = Math.floor(seconds / 60);
@@ -33,7 +36,12 @@ function displayEndTime(stamp) {
 }
 
 function startTimer() {
-  const time = parseFloat(this.dataset.time);
+  let time;
+  if (this.dataset.time) {
+    time = parseFloat(this.dataset.time);
+  } else {
+    time = parseFloat(this.value) * 60;
+  }
 
   count(time);
 }
