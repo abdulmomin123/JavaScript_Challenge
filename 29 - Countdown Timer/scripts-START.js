@@ -18,11 +18,11 @@ function count(sec) {
     displayTimeLeft(secondsLeft);
   }, 1000);
 }
-count(120);
+count(65);
 
 function displayTimeLeft(seconds) {
   const minute = Math.floor(seconds / 60);
-  seconds = seconds % 60;
+  seconds = seconds % 60 < 10 ? `0${seconds % 60}` : seconds;
 
   elements.time.textContent = `${minute}:${seconds}`;
 }
