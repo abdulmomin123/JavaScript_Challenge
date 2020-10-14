@@ -34,12 +34,13 @@ function displayEndTime(stamp) {
 
 function startTimer() {
   const time = parseFloat(this.dataset.time);
-  console.log(time);
 
   count(time);
 }
 
 function count(sec) {
+  clearInterval(countdown);
+
   const now = Date.now();
   const then = now + sec * 1000;
 
