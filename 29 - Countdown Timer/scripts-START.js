@@ -21,9 +21,10 @@ function count(sec) {
 
     displayTimeLeft(secondsLeft);
   }, 1000);
+
+  displayEndTime(then);
 }
 count(60);
-displayEndTime(60);
 
 function displayTimeLeft(seconds) {
   const minute = Math.floor(seconds / 60);
@@ -33,13 +34,11 @@ function displayTimeLeft(seconds) {
   elements.title.textContent = `Countdown Timer: ${minute}:${seconds}`;
 }
 
-function displayEndTime(sec) {
-  let comeBackAt = Date.now() / 1000;
-  const time = {
-    hour: Math.floor(comeBackAt / 3600),
-    minute: Math.floor(comeBackAt % 60),
-  };
+function displayEndTime(stamp) {
+  const time = new Date(stamp);
+  const hour = time.getHours();
+  const minute = time.getMinutes();
 
-  console.log(time.hour);
-  elements.endTime.textContent = `Come back at: ${time.hour}:${time.minute}`;
+  console.log(hour, minute);
+  elements.endTime.textContent = `Come back at: ${""}:${""}`;
 }
