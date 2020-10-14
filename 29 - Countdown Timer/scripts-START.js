@@ -5,10 +5,10 @@ function count(sec) {
   const then = now + sec * 1000;
 
   setInterval(() => {
-    const secondsLeft = (then - Date.now()) / 1000;
+    const secondsLeft = Math.round((then - Date.now()) / 1000);
     console.log(secondsLeft);
   }, 1000);
 
   // console.log({ now, then });
 }
-count(3600);
+count(10);
