@@ -22,8 +22,8 @@ function count(sec) {
     displayTimeLeft(secondsLeft);
   }, 1000);
 }
-count(65);
-displayEndTime(65);
+count(60);
+displayEndTime(60);
 
 function displayTimeLeft(seconds) {
   const minute = Math.floor(seconds / 60);
@@ -34,10 +34,12 @@ function displayTimeLeft(seconds) {
 }
 
 function displayEndTime(sec) {
-  let comeBackAt = (sec * 1000 + Date.now()) / 1000;
-  const minute = comeBackAt / 60;
-  comeBackAt = comeBackAt % 60;
+  let comeBackAt = Date.now() / 1000;
+  const time = {
+    hour: Math.floor(comeBackAt / 3600),
+    minute: Math.floor(comeBackAt % 60),
+  };
 
-  console.log(comeBackAt);
-  elements.endTime.textContent = `Come back at:`;
+  console.log(time.hour);
+  elements.endTime.textContent = `Come back at: ${time.hour}:${time.minute}`;
 }
