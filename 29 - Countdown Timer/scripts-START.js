@@ -16,8 +16,6 @@ function count(sec) {
 
     displayTimeLeft(secondsLeft);
   }, 1000);
-
-  // console.log({ now, then });
 }
 count(3);
 
