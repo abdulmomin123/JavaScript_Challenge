@@ -6,6 +6,10 @@ const elements = {
 };
 let countdown;
 
+elements.inputs.forEach((input) => {
+  input.addEventListener("click", startTimer);
+});
+
 function displayTimeLeft(seconds) {
   const minute = Math.floor(seconds / 60);
   seconds = seconds % 60 < 10 ? `0${seconds % 60}` : seconds % 60;
@@ -18,13 +22,21 @@ function displayEndTime(stamp) {
   const time = new Date(stamp);
   const timeFormat = time.toLocaleTimeString();
   let hour;
-  const minute = time.getMinutes();
+  const minute =
+    time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
 
   if (timeFormat.match(/am/gi) || timeFormat.match(/pm/gi)) {
     hour = time.getHours() > 12 ? time.getHours() - 12 : time.getHours();
   }
 
   elements.endTime.textContent = `Come back at ${hour}:${minute}`;
+}
+
+function startTimer() {
+  const time = parseFloat(this.dataset.time);
+  console.log(time);
+
+  count(time);
 }
 
 function count(sec) {
@@ -46,4 +58,3 @@ function count(sec) {
 
   displayEndTime(then);
 }
-// count(120);
