@@ -37,8 +37,12 @@ function displayTimeLeft(seconds) {
 function displayEndTime(stamp) {
   const time = new Date(stamp);
   const timeFormat = time.toLocaleTimeString();
-  const hour = time.getHours();
+  let hour;
   const minute = time.getMinutes();
+
+  if (timeFormat.match(/am/gi) || timeFormat.match(/pm/gi)) {
+    hour = time.getHours() > 12 ? time.getHours() - 12 : time.getHours();
+  }
 
   elements.endTime.textContent = `Come back at ${hour}:${minute}`;
 
