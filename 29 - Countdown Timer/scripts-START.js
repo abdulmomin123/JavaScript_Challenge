@@ -6,3 +6,4 @@ function count(sec) {
   console.log({ now, then });
 }
 count(3600);
+// hard stuff!
