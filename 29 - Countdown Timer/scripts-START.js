@@ -34,9 +34,8 @@ function displayTimeLeft(seconds) {
 }
 
 function displayEndTime(sec) {
-  const curTime = Date.now();
+  const comeBackAt = (sec * 1000 + Date.now()) / 1000;
 
-  // console.log(comeBackAt);
+  console.log(comeBackAt);
   elements.endTime.textContent = `Come back at:`;
 }
-displayEndTime();
