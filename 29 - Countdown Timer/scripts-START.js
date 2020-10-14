@@ -24,7 +24,7 @@ function count(sec) {
 
   displayEndTime(then);
 }
-count(120);
+count(60);
 
 function displayTimeLeft(seconds) {
   const minute = Math.floor(seconds / 60);
@@ -38,7 +38,8 @@ function displayEndTime(stamp) {
   const time = new Date(stamp);
   const timeFormat = time.toLocaleTimeString();
   let hour;
-  const minute = time.getMinutes();
+  const minute =
+    time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
 
   if (timeFormat.match(/am/gi) || timeFormat.match(/pm/gi)) {
     hour = time.getHours() > 12 ? time.getHours() - 12 : time.getHours();
