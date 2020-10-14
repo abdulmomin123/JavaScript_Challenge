@@ -30,3 +30,7 @@ function displayTimeLeft(seconds) {
   elements.time.textContent = `${minute}:${seconds}`;
   elements.title.textContent = `Countdown Timer: ${minute}:${seconds}`;
 }
+
+function displayEndTime() {
+  //
+}
