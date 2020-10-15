@@ -19,6 +19,10 @@ function startGame() {
     holes[random].classList.add("up");
   }, 500);
 
+  setTimeout(() => {
+    clearInterval(timer);
+  }, 10000);
+
   moles.forEach((mole) => mole.addEventListener("click", addScore));
 }
 
