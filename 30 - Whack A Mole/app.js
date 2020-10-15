@@ -17,9 +17,6 @@ function startGame(e) {
     const random = Math.floor(Math.random() * 6);
 
     holes[random].classList.add("up");
-
-    //  update the score
-    scoreBoard.textContent = score;
   }, 500);
 
   moles.forEach((mole) => mole.addEventListener("click", addScore));
@@ -32,4 +29,7 @@ function addScore(e) {
     }
   });
   score++;
+
+  //  update the score
+  scoreBoard.textContent = score;
 }
