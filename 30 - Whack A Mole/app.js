@@ -5,7 +5,7 @@ const moles = document.querySelectorAll(".mole");
 let score = 0;
 let timer;
 
-function startGame(e) {
+function startGame() {
   clearInterval(timer);
 
   timer = setInterval(() => {
@@ -22,7 +22,7 @@ function startGame(e) {
   moles.forEach((mole) => mole.addEventListener("click", addScore));
 }
 
-function addScore(e) {
+function addScore() {
   holes.forEach((hole) => {
     if (hole.classList.contains("up")) {
       hole.classList.remove("up");
